@@ -16,7 +16,7 @@ class OnboardingViewModel extends BaseViewModel {
 
   updatePage(index) {
     log.d('@updateOnboarding page with index: $index');
-    this.currentPageIndex = index;
+    currentPageIndex = index;
     _localStorageService.onBoardingPageCount = index;
     notifyListeners();
   }

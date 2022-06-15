@@ -28,7 +28,7 @@ class LocalStorageService {
 
   dynamic get refreshToken => _getFromDisk(refreshTokenKey);
 
-////
+  ///
   ///initializing instance
   ///
   init() async {

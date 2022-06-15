@@ -4,44 +4,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_antonx_boilerplate/ui/screens/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:logger/logger.dart';
 import 'core/services/localization_service.dart';
 import 'locator.dart';
 
 Future<void> main() async {
-  // final Logger log = Logger();
+  final log = Logger();
   try {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
-//for notifiications
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
     await setupLocator();
-    runApp(MyApp());
+    runApp(const MyApp());
   } catch (e, s) {
-    print("$e");
-    print("$s");
+    log.d("$e");
+    log.d("$s");
   }
 }
 
-// If you're going to use other Firebase services in the background, such as Firestore,
+// If you're going to use other Firebase services in the background, such as FireStore,
 // make sure you call `initializeApp` before using other Firebase services.
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  final log = Logger();
   await Firebase.initializeApp();
-  print("Handling a background message: ${message.messageId}");
+  log.d("Handling a background message: ${message.messageId}");
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      //TODO: Screen sizes to be changed according to the design provided
-      designSize: Size(375, 812),
+      designSize: const Size(375, 812),
       builder: (context, widget) => GetMaterialApp(
           translations: LocalizationService(),
-          locale: Locale("en"),
+          locale: const Locale("en"),
           title: "Flutter Demo",
-          home: SplashScreen()),
+          home: const SplashScreen()),
     );
   }
 }

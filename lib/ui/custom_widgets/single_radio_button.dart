@@ -4,7 +4,9 @@ import 'package:flutter_antonx_boilerplate/core/constants/colors.dart';
 class CustomSingleRadioButton extends StatelessWidget {
   final bool isSelected;
   final onPressed;
-  CustomSingleRadioButton({this.isSelected = false, this.onPressed});
+  const CustomSingleRadioButton(
+      {Key? key, this.isSelected = false, this.onPressed})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -14,7 +16,7 @@ class CustomSingleRadioButton extends StatelessWidget {
         child: Container(
           height: 14,
           width: 14,
-          padding: EdgeInsets.all(2),
+          padding: const EdgeInsets.all(2),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
             color: Colors.white,

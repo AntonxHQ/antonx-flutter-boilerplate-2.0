@@ -5,7 +5,7 @@ class LoginBody {
   LoginBody({this.email, this.password});
 
   toJson() => {
-        'email': this.email,
-        'password': this.password,
+        'email': email,
+        'password': password,
       };
 }

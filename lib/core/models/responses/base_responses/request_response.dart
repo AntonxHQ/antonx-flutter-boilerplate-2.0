@@ -6,16 +6,16 @@ class RequestResponse {
   RequestResponse(this.success, {this.error});
 
   RequestResponse.fromJson(json) {
-    this.data = json;
-    this.success = json['success'];
-    this.error = json['error'];
+    data = json;
+    success = json['success'];
+    error = json['error'];
   }
 
   toJson() {
     return {
-      'success': this.success,
-      'error': this.error,
-      'body': this.data,
+      'success': success,
+      'error': error,
+      'body': data,
     };
   }
 }

@@ -4,11 +4,11 @@ class ResetPasswordResponse extends BaseResponse {
   String? message;
 
   /// Default constructor
-  ResetPasswordResponse(succes, {error, this.message})
-      : super(succes, error: error);
+  ResetPasswordResponse(success, {error, this.message})
+      : super(success, error: error);
 
   /// Named Constructor
   ResetPasswordResponse.fromJson(json) : super.fromJson(json) {
-    if (json['body'] != null) this.message = json['body']['message'];
+    if (json['body'] != null) message = json['body']['message'];
   }
 }

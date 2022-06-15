@@ -8,7 +8,7 @@ import '../../locator.dart';
 class ApiServices {
   Future<Dio> launchDio() async {
     String? accessToken = locator<LocalStorageService>().accessToken;
-    Dio dio = new Dio();
+    Dio dio = Dio();
     dio.interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
     // dio.interceptors.add(
     //     DioCacheManager(CacheConfig(baseUrl: EndPoint.baseUrl)).interceptor);
@@ -18,10 +18,11 @@ class ApiServices {
 
     dio.options.followRedirects = false;
     dio.options.validateStatus = (s) {
-      if (s != null)
+      if (s != null) {
         return s < 500;
-      else
+      } else {
         return false;
+      }
     };
     return dio;
   }
@@ -29,7 +30,7 @@ class ApiServices {
   get({required String url, params}) async {
     Dio dio = await launchDio();
     final response =
-        await dio.get('$url', queryParameters: params).catchError((e) {
+        await dio.get(url, queryParameters: params).catchError((e) {
       debugPrint('Unexpected Error');
     });
     if (response.statusCode == 200) {
@@ -43,7 +44,7 @@ class ApiServices {
 
   post({required String url, data}) async {
     Dio dio = await launchDio();
-    final response = await dio.post('$url', data: data).catchError((e) {
+    final response = await dio.post(url, data: data).catchError((e) {
       debugPrint('Unexpected Error');
     });
     if (response.statusCode == 200) {
@@ -57,7 +58,7 @@ class ApiServices {
 
   put({required String url, data}) async {
     Dio dio = await launchDio();
-    final response = await dio.put('$url', data: data).catchError((e) {
+    final response = await dio.put(url, data: data).catchError((e) {
       debugPrint('Unexpected Error');
     });
     if (response.statusCode == 200) {
@@ -72,7 +73,7 @@ class ApiServices {
   delete({required String url, params}) async {
     Dio dio = await launchDio();
     final response =
-        await dio.delete('$url', queryParameters: params).catchError((e) {
+        await dio.delete(url, queryParameters: params).catchError((e) {
       debugPrint('Unexpected Error');
     });
     if (response.statusCode == 200) {

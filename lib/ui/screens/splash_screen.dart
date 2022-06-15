@@ -2,10 +2,9 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_antonx_boilerplate/core/models/other_models/onboarding.dart';
 import 'package:flutter_antonx_boilerplate/core/services/auth_service.dart';
-import 'package:flutter_antonx_boilerplate/core/services/database_service.dart';
 import 'package:flutter_antonx_boilerplate/core/services/local_storage_service.dart';
 import 'package:flutter_antonx_boilerplate/core/services/notifications_service.dart';
-import 'package:flutter_antonx_boilerplate/ui/custom_widgets/dailogs/network_error_dialog.dart';
+import 'package:flutter_antonx_boilerplate/ui/custom_widgets/dialogs/network_error_dialog.dart';
 import 'package:flutter_antonx_boilerplate/ui/screens/root/root_screen.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
@@ -15,14 +14,15 @@ import 'auth_signup/login/login_screen.dart';
 import 'onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
   final _authService = locator<AuthService>();
-  final _dbService = locator<DatabaseService>();
-  final _localStorateService = locator<LocalStorageService>();
+  final _localStorageService = locator<LocalStorageService>();
   final _notificationService = locator<NotificationsService>();
   List<Onboarding> onboardingList = [];
   final Logger log = Logger();
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _initialSetup() async {
-    await _localStorateService.init();
+    await _localStorageService.init();
 
     ///
     /// If not connected to internet, show an alert dialog
@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
     ///
     final connectivityResult = await Connectivity().checkConnectivity();
     if (connectivityResult == ConnectivityResult.none) {
-      Get.dialog(NetworkErrorDialog());
+      Get.dialog(const NetworkErrorDialog());
       return;
     }
 
@@ -57,12 +57,12 @@ class _SplashScreenState extends State<SplashScreen> {
     ///getting onboarding data for pre loading purpose
     onboardingList = await _getOnboardingData();
 //routing to the last onboarding screen user seen
-    if (_localStorateService.onBoardingPageCount + 1 < onboardingList.length) {
+    if (_localStorageService.onBoardingPageCount + 1 < onboardingList.length) {
       final List<Image> preCachedImages =
           await _preCacheOnboardingImages(onboardingList);
       await Get.to(() => OnboardingScreen(
-          currentIndex: _localStorateService.onBoardingPageCount,
-          onboardingList: this.onboardingList,
+          currentIndex: _localStorageService.onBoardingPageCount,
+          onboardingList: onboardingList,
           preCachedImages: preCachedImages));
       return;
     }
@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> {
     ///
     log.d('Login State: ${_authService.isLogin}');
     if (_authService.isLogin) {
-      Get.off(() => RootScreen());
+      Get.off(() => const RootScreen());
     } else {
       Get.off(() => LoginScreen());
     }
@@ -83,7 +83,7 @@ class _SplashScreenState extends State<SplashScreen> {
     List<Image> preCachedImages =
         onboardingList.map((e) => Image.network(e.imgUrl!)).toList();
     for (Image preCacheImg in preCachedImages) {
-      await precacheImage(preCacheImg.image, context);
+      // await precacheImage(preCacheImg.image, context);
     }
     return preCachedImages;
   }
@@ -107,26 +107,8 @@ class _SplashScreenState extends State<SplashScreen> {
     ///
     /// Splash Screen UI goes here.
     ///
-    return Scaffold(
-      body: Container(
-        child: Center(child: Text('Splash Screen')),
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage(
-        //       "${staticAssetsPath}splash_screen.png",
-        //     ),
-        //     fit: BoxFit.cover,
-        //   ),
-        // ),
-        // child: Center(
-        //   child: Image.asset(
-        //     '${staticAssetsPath}mustafed_logo.png',
-        //     width: 136.w,
-        //     height: 157.h,
-        //     fit: BoxFit.contain,
-        //   ),
-        // ),
-      ),
+    return const Scaffold(
+      body: Center(child: Text('Splash Screen')),
     );
   }
 }

@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 class LanguageChangeAlertDialog extends StatelessWidget {
   final message;
 
-  LanguageChangeAlertDialog({@required this.message});
+  const LanguageChangeAlertDialog({Key? key, required this.message})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

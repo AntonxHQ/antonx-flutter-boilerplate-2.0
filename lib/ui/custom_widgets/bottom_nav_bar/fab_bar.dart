@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,17 +11,18 @@ class FABBottomAppBarItem {
 
 class FABBottomAppBar extends StatefulWidget {
   FABBottomAppBar({
+    Key? key,
     required this.items,
     this.centerItemText,
-    this.height: 70.0,
-    this.iconSize: 30,
+    this.height = 70.0,
+    this.iconSize = 30,
     this.backgroundColor,
     this.color,
     this.selectedColor,
     this.notchedShape,
     required this.onTabSelected,
     this.isNestedBottomBar = false,
-  }) {
+  }) : super(key: key) {
     assert(this.items.length == 2 || this.items.length == 4);
   }
   final List<FABBottomAppBarItem> items;
@@ -59,9 +62,7 @@ class FABBottomAppBarState extends State<FABBottomAppBar> {
     items.insert(items.length >> 1, _buildMiddleTabItem());
 
     return Container(
-      padding: EdgeInsets.only(
-        bottom: 0,
-      ),
+      padding: const EdgeInsets.only(bottom: 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color: Colors.transparent,

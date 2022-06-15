@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class RequestFailedDialog extends StatelessWidget {
-  final errorMessage;
+class RequestSuccessDialog extends StatelessWidget {
+  final successMsg;
 
-  RequestFailedDialog({@required this.errorMessage});
+  const RequestSuccessDialog({Key? key, @required this.successMsg})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('requestFailedTitle'.tr),
-      content: Text("$errorMessage"),
+      title: Text('requestSuccessTitle'.tr),
+      content: Text("$successMsg"),
       actions: [
         ElevatedButton(
           onPressed: () {

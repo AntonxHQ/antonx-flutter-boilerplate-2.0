@@ -26,12 +26,12 @@ class SignUpBody {
 
   toJson() async {
     return {
-      'email': this.email,
-      'password': this.password,
-      'name': this.name,
-      'location': this.location,
-      'gender': this.gender,
-      'phone': this.phone,
+      'email': email,
+      'password': password,
+      'name': name,
+      'location': location,
+      'gender': gender,
+      'phone': phone,
       'image':
           image != null ? await dio.MultipartFile.fromFile(image!.path) : null,
       // 'fcm_token': this.fcmToken,

@@ -6,7 +6,7 @@ class OnboardingResponse extends BaseResponse {
   late List<Onboarding> onboardingsList = [];
 
   /// Default constructor
-  OnboardingResponse(succes, {error}) : super(succes, error: error);
+  OnboardingResponse(success, {error}) : super(success, error: error);
 
   /// Named Constructor
   OnboardingResponse.fromJson(json) : super.fromJson(json) {

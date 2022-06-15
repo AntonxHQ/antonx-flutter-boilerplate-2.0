@@ -10,6 +10,8 @@ import 'package:provider/provider.dart';
 class PinLocationScreen extends StatelessWidget {
   final Completer<GoogleMapController> _controller = Completer();
 
+  PinLocationScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -23,13 +25,10 @@ class PinLocationScreen extends StatelessWidget {
               onPressed: () {
                 model.getAndAnimateToCurrentLocation();
               },
-              child: Icon(Icons.gps_fixed),
+              child: const Icon(Icons.gps_fixed),
             ),
             appBar: AppBar(
-              title: Text(
-                'Active Location',
-                // style: textStyleAppbarTitle,
-              ),
+              title: const Text('Active Location'),
               // actions: <Widget>[
               //   Padding(
               //     padding: const EdgeInsets.all(10.0),
@@ -42,7 +41,7 @@ class PinLocationScreen extends StatelessWidget {
               // ],
             ),
             body: model.state == ViewState.busy
-                ? Center(child: CircularProgressIndicator())
+                ? const Center(child: CircularProgressIndicator())
                 : Stack(
                     children: [
                       GoogleMap(
@@ -63,7 +62,7 @@ class PinLocationScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 20),
                             child: ElevatedButton(
-                              child: Text('Confirm Location'),
+                              child: const Text('Confirm Location'),
                               onPressed: () {
                                 Get.back(result: model.selectedLocation);
                               },
@@ -71,13 +70,13 @@ class PinLocationScreen extends StatelessWidget {
                           ),
                         )
                       else
-                        Align(
+                        const Align(
                           alignment: Alignment.topCenter,
                           child: Padding(
                             padding: EdgeInsets.only(top: 20),
                             child: Card(
                                 child: Padding(
-                              padding: const EdgeInsets.all(10),
+                              padding: EdgeInsets.all(10),
                               child: Text(
                                   'Tap any location on Map to select the location.'),
                             )),

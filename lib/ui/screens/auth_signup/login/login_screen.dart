@@ -44,10 +44,8 @@ class LoginScreen extends StatelessWidget {
                               border:
                                   Border.all(color: Colors.white, width: 0.0)),
                           child: Column(
-                            children: [
-                              SizedBox(
-                                height: 60,
-                              ),
+                            children: const [
+                              SizedBox(height: 60),
 
                               ///
                               /// UserIcon
@@ -84,10 +82,9 @@ class LoginScreen extends StatelessWidget {
                                       color: Colors.transparent, width: 0.0)),
                             ),
                             Container(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   vertical: 35, horizontal: 31),
-                              decoration: BoxDecoration(
-                                  // color: greyColor,
+                              decoration: const BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(24),
                                 topLeft: Radius.circular(24),
@@ -102,14 +99,12 @@ class LoginScreen extends StatelessWidget {
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
-                                      children: [
+                                      children: const [
                                         // SocialAuthButtons(),
                                       ],
                                     ),
 
-                                    SizedBox(
-                                      height: 23,
-                                    ),
+                                    const SizedBox(height: 23),
 
                                     ///
                                     /// user name field
@@ -128,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                                           model.loginBody.email = val;
                                         },
                                         hintText: "Username",
-                                        prefixIcon: Icon(Icons.person)
+                                        prefixIcon: const Icon(Icons.person)
                                         //  ImageContainer(
                                         //   width: 22.w,
                                         //   height: 22.h,
@@ -138,9 +133,7 @@ class LoginScreen extends StatelessWidget {
                                         // ),
                                         ),
 
-                                    SizedBox(
-                                      height: 24,
-                                    ),
+                                    const SizedBox(height: 24),
 
                                     ///
                                     /// Password field
@@ -168,13 +161,13 @@ class LoginScreen extends StatelessWidget {
                                                 ? Icons.visibility_off
                                                 : Icons.visibility,
                                             size: 18.h,
-                                            color: Color(0xFFB1B1B1),
+                                            color: const Color(0xFFB1B1B1),
                                           ),
                                           onPressed: () {
                                             model.togglePasswordVisibility();
                                           },
                                         ),
-                                        prefixIcon: Icon(Icons.password)
+                                        prefixIcon: const Icon(Icons.password)
                                         // ImageContainer(
                                         //   width: 22.w,
                                         //   height: 22.h,
@@ -184,9 +177,7 @@ class LoginScreen extends StatelessWidget {
                                         // ),
                                         ),
 
-                                    SizedBox(
-                                      height: 16,
-                                    ),
+                                    const SizedBox(height: 16),
 
                                     ///
                                     /// Remember me radio buttons section
@@ -219,12 +210,13 @@ class LoginScreen extends StatelessWidget {
                                         //           fontSize: 11,
                                         //           color: Colors.white),
                                         // ),
-                                        Spacer(),
+                                        const Spacer(),
                                         InkWell(
                                           onTap: () {
-                                            Get.to(ForgetPasswordScreen());
+                                            Get.to(
+                                                const ForgetPasswordScreen());
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             "Forget Password",
                                             // style:
                                             //     textStyleWithHacenFont.copyWith(
@@ -237,9 +229,7 @@ class LoginScreen extends StatelessWidget {
                                       ],
                                     ),
 
-                                    SizedBox(
-                                      height: 8,
-                                    ),
+                                    const SizedBox(height: 8),
 
                                     ///
                                     /// Register Button
@@ -251,7 +241,7 @@ class LoginScreen extends StatelessWidget {
                                         onTap: () {
                                           Get.to(SignUpScreen());
                                         },
-                                        child: Text(
+                                        child: const Text(
                                           "Register",
                                           // style:
                                           //     textStyleWithHacenFont.copyWith(
