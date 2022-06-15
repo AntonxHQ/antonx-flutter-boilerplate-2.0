@@ -1,3 +1,5 @@
+import 'package:flutter_antonx_boilerplate/core/config/config.dart';
+import 'package:flutter_antonx_boilerplate/core/enums/env.dart';
 import 'package:get_it/get_it.dart';
 
 import 'core/services/api_services.dart';
@@ -9,11 +11,9 @@ import 'core/services/local_storage_service.dart';
 
 GetIt locator = GetIt.instance;
 
-setupLocator() async {
-  // final _instance = await LocalStorageService.getInstance();
-  // locator.registerSingleton(_instance);
+setupLocator(Env env) async {
+  locator.registerSingleton(Config(env));
   locator.registerSingleton(LocalStorageService());
-
   locator.registerSingleton(NotificationsService());
   locator.registerLazySingleton<DatabaseService>(() => DatabaseService());
   locator.registerSingleton<AuthService>(AuthService());

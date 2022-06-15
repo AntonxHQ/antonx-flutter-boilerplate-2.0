@@ -1,6 +1,4 @@
 class EndPoints {
-  static const baseUrl = 'base_url';
-
   static const userProfile = 'user_profile';
   static const onboardingData = 'onboarding_data';
   static const fcmToken = 'fcm_token';

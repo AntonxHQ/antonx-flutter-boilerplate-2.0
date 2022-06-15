@@ -12,8 +12,8 @@ Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-    await setupLocator(Env.production);
-    runApp(const MyApp(title: 'App Name'));
+    await setupLocator(Env.test);
+    runApp(const MyApp(title: 'Test - App Name'));
   } catch (e, s) {
     log.d("$e");
     log.d("$s");

@@ -1,11 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_antonx_boilerplate/core/config/config.dart';
 import 'package:flutter_antonx_boilerplate/core/models/responses/base_responses/request_response.dart';
 import 'package:flutter_antonx_boilerplate/core/services/local_storage_service.dart';
 
 import '../../locator.dart';
 
 class ApiServices {
+  final config = locator<Config>();
   Future<Dio> launchDio() async {
     String? accessToken = locator<LocalStorageService>().accessToken;
     Dio dio = Dio();
@@ -27,10 +29,11 @@ class ApiServices {
     return dio;
   }
 
-  get({required String url, params}) async {
+  get({required String endPoint, params}) async {
     Dio dio = await launchDio();
-    final response =
-        await dio.get(url, queryParameters: params).catchError((e) {
+    final response = await dio
+        .get('${config.baseUrl}/$endPoint', queryParameters: params)
+        .catchError((e) {
       debugPrint('Unexpected Error');
     });
     if (response.statusCode == 200) {
@@ -42,9 +45,11 @@ class ApiServices {
     }
   }
 
-  post({required String url, data}) async {
+  post({required String endPoint, data}) async {
     Dio dio = await launchDio();
-    final response = await dio.post(url, data: data).catchError((e) {
+    final response = await dio
+        .post('${config.baseUrl}/$endPoint', data: data)
+        .catchError((e) {
       debugPrint('Unexpected Error');
     });
     if (response.statusCode == 200) {
@@ -56,9 +61,11 @@ class ApiServices {
     }
   }
 
-  put({required String url, data}) async {
+  put({required String endPoint, data}) async {
     Dio dio = await launchDio();
-    final response = await dio.put(url, data: data).catchError((e) {
+    final response = await dio
+        .put('${config.baseUrl}/$endPoint', data: data)
+        .catchError((e) {
       debugPrint('Unexpected Error');
     });
     if (response.statusCode == 200) {
@@ -70,10 +77,11 @@ class ApiServices {
     }
   }
 
-  delete({required String url, params}) async {
+  delete({required String endPoint, params}) async {
     Dio dio = await launchDio();
-    final response =
-        await dio.delete(url, queryParameters: params).catchError((e) {
+    final response = await dio
+        .delete('${config.baseUrl}/$endPoint', queryParameters: params)
+        .catchError((e) {
       debugPrint('Unexpected Error');
     });
     if (response.statusCode == 200) {
