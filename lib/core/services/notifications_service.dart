@@ -24,17 +24,11 @@ class NotificationsService {
     ///
     ///now initializing the listeners
     ///
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      RemoteNotification notification = message.notification!;
-      AndroidNotification android = message.notification!.android!;
-      // hostUserId = message.data['hostUserId'].toString();
-    });
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {});
 
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      RemoteNotification notification = message.notification!;
-      AndroidNotification android = message.notification!.android!;
-    });
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {});
 
+    // ignore: unused_local_variable
     NotificationSettings settings = await _fcm.requestPermission(
       alert: true,
       announcement: false,

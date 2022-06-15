@@ -78,7 +78,7 @@ class SignUpScreen extends StatelessWidget {
                                               BorderRadius.circular(200),
                                         )
                                       else
-                                        ImageContainer(
+                                        const ImageContainer(
                                           height: 141,
                                           width: 141,
                                           assets:

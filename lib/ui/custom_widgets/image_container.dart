@@ -14,14 +14,16 @@ class ImageContainer extends StatelessWidget {
   final BoxFit fit;
 //  final
 
-  ImageContainer(
-      {this.height,
+  const ImageContainer(
+      {Key? key,
+      this.height,
       this.width,
       this.assets = "assets/static_assets/user_icon.png",
       this.radius = 0,
       this.url,
       this.fit = BoxFit.cover,
-      this.color = Colors.transparent});
+      this.color = Colors.transparent})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return url == null

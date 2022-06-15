@@ -10,8 +10,9 @@ import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatelessWidget {
-  //Todo: Do localization here.
   final _formKey = GlobalKey<FormState>();
+
+  LoginScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -185,7 +186,7 @@ class LoginScreen extends StatelessWidget {
                                     Row(
                                       children: [
                                         // CustomSingleRadioButton(
-                                        //   isSelected: model.isRemeberMe,
+                                        //   isSelected: model.isRememberMe,
                                         //   onPressed: {
                                         //     model.toggleIsRememberMe()
                                         //   },
