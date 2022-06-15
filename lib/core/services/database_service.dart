@@ -8,25 +8,26 @@ import 'package:flutter_antonx_boilerplate/core/models/responses/base_responses/
 import 'package:flutter_antonx_boilerplate/core/models/responses/onboarding_response.dart';
 import 'package:flutter_antonx_boilerplate/core/models/responses/user_profile_response.dart';
 import 'package:flutter_antonx_boilerplate/core/services/api_services.dart';
+import 'package:flutter_antonx_boilerplate/locator.dart';
 
 class DatabaseService {
-  final ApiServices _apiServices = ApiServices();
+  final ApiServices _apiServices = locator<ApiServices>();
 
   Future<UserProfileResponse> getUserProfile() async {
-    final RequestResponse response = await _apiServices.get(
-        url: '${EndPoints.baseUrl}${EndPoints.userProfile}');
+    final RequestResponse response =
+        await _apiServices.get(endPoint: EndPoints.userProfile);
     return UserProfileResponse.fromJson(response.data);
   }
 
   Future<OnboardingResponse> getOnboardingData() async {
-    final RequestResponse response = await _apiServices.get(
-        url: '${EndPoints.baseUrl}${EndPoints.onboardingData}');
+    final RequestResponse response =
+        await _apiServices.get(endPoint: EndPoints.onboardingData);
     return OnboardingResponse.fromJson(response.data);
   }
 
   Future<BaseResponse> updateFcmToken(String deviceId, String token) async {
     final RequestResponse response = await _apiServices.post(
-      url: '${EndPoints.baseUrl}${EndPoints.fcmToken}',
+      endPoint: EndPoints.fcmToken,
       data: {
         'device_id': deviceId,
         'token': token,
@@ -37,7 +38,7 @@ class DatabaseService {
 
   Future<BaseResponse> clearFcmToken(String deviceId) async {
     final RequestResponse response = await _apiServices.post(
-      url: '${EndPoints.baseUrl}${EndPoints.clearFcmToken}',
+      endPoint: EndPoints.clearFcmToken,
       data: {'device_id': deviceId},
     );
     return BaseResponse.fromJson(response.data);
@@ -45,7 +46,7 @@ class DatabaseService {
 
   Future<AuthResponse> loginWithEmailAndPassword(LoginBody body) async {
     final RequestResponse response = await _apiServices.post(
-      url: '${EndPoints.baseUrl}${EndPoints.login}',
+      endPoint: EndPoints.login,
       data: body.toJson(),
     );
     return AuthResponse.fromJson(response.data);
@@ -53,7 +54,7 @@ class DatabaseService {
 
   Future<AuthResponse> createAccount(SignUpBody body) async {
     final RequestResponse response = await _apiServices.post(
-      url: '${EndPoints.baseUrl}${EndPoints.signUp}',
+      endPoint: EndPoints.signUp,
       data: body.toJson(),
     );
     return AuthResponse.fromJson(response.data);
@@ -61,7 +62,7 @@ class DatabaseService {
 
   Future<AuthResponse> resetPassword(ResetPasswordBody body) async {
     final RequestResponse response = await _apiServices.post(
-      url: '${EndPoints.baseUrl}${EndPoints.resetPassword}',
+      endPoint: EndPoints.resetPassword,
       data: body.toJson(),
     );
     return AuthResponse.fromJson(response.data);
