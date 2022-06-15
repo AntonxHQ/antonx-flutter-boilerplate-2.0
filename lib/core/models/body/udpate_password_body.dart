@@ -5,7 +5,7 @@ class UpdatePasswordBody {
   UpdatePasswordBody({this.oldPassword, this.newPassword});
 
   toJson() => {
-        'oldPassword': this.oldPassword,
-        'newPassword': this.newPassword,
+        'oldPassword': oldPassword,
+        'newPassword': newPassword,
       };
 }

@@ -8,7 +8,7 @@ import 'package:permission_handler/permission_handler.dart';
 class LocationService {
   Position? currentLocation;
   double? latitude;
-  double? longtitude;
+  double? longitude;
   final Logger log = Logger();
 
   Future<Position?> getCurrentLocation() async {
@@ -44,19 +44,19 @@ class LocationService {
     }
   }
 
-  static Future<String> getAddressFromLatLng(LatLng? location) async {
+  Future<String> getAddressFromLatLng(LatLng? location) async {
     try {
-      List<Placemark> placemarks = await placemarkFromCoordinates(
+      List<Placemark> placeMarks = await placemarkFromCoordinates(
           location!.latitude, location.longitude);
 
-      Placemark place = placemarks[0];
-      print("the location is  ${place.thoroughfare} " +
-          " ${place.subLocality}" +
-          " ${place.locality}" +
+      Placemark place = placeMarks[0];
+      log.d("the location is  ${place.thoroughfare} "
+          " ${place.subLocality}"
+          " ${place.locality}"
           " ${place.country}");
       return "${place.thoroughfare} ${place.subLocality} ${place.locality} ${place.country}";
     } catch (e) {
-      print("the exception is $e");
+      log.d("the exception is $e");
       return '';
     }
   }

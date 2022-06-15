@@ -9,7 +9,7 @@ class Onboarding {
 
   Onboarding.fromJson(json) {
     debugPrint('$json');
-    this.title = json[LocalizationService.getLocalizedKey('title')];
-    this.imgUrl = json['image_url'];
+    title = json[LocalizationService.getLocalizedKey('title')];
+    imgUrl = json['image_url'];
   }
 }

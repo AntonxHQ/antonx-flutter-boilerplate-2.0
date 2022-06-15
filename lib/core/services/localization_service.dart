@@ -1,25 +1,27 @@
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 
 class LocalizationService extends Translations {
+  final log = Logger();
   static getLocalizedKey(String key) {
     String currentLanguageCode = Get.locale!.languageCode;
-    print('Localized key is: ${key}_$currentLanguageCode');
+    Logger().d('Localized key is: ${key}_$currentLanguageCode');
     return '${key}_$currentLanguageCode';
   }
 
   @override
   Map<String, Map<String, String>> get keys {
-    const Map<String, String> lang_en = {
+    const Map<String, String> english = {
       "hello": "Hello world!",
     };
 
-    const Map<String, String> lang_ar = {
-      "hello": "!مرحبا بالعالم",
+    const Map<String, String> arabic = {
+      "hello": '!مرحبا بالعالم',
     };
 
     return {
-      'en': lang_en,
-      'ar': lang_ar,
+      'en': english,
+      'ar': arabic,
     };
   }
 }

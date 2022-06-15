@@ -26,24 +26,24 @@ class ImageContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return url == null
         ? Container(
-            height: this.height,
-            width: this.width,
+            height: height,
+            width: width,
             decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.circular(radius),
                 image: DecorationImage(
-                  image: AssetImage(this.assets),
+                  image: AssetImage(assets),
                   fit: fit,
                 )),
           )
         : ClipRRect(
             borderRadius: BorderRadius.circular(radius),
             child: FadeInImage(
-              width: this.width,
-              height: this.height,
+              width: width,
+              height: height,
               image: NetworkImage(url!),
-              placeholder: AssetImage(this.assets),
-              fit: this.fit,
+              placeholder: AssetImage(assets),
+              fit: fit,
             ),
           );
   }

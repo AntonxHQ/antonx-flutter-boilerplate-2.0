@@ -8,7 +8,7 @@ class PinLocationViewModel extends BaseViewModel {
   late GoogleMapController controller;
   late CameraPosition initialCameraPosition;
   var currentLocationIcon;
-  Set<Marker> markers = Set<Marker>();
+  Set<Marker> markers = <Marker>{};
   late LatLng markerPosition;
   final _locationService = LocationService();
   LatLng? currentLoc;
@@ -20,16 +20,16 @@ class PinLocationViewModel extends BaseViewModel {
 
   init() async {
     setState(ViewState.busy);
-    markerPosition = LatLng(34.045253, 71.593056); // Peshawar pin
-    this.initialCameraPosition =
-        CameraPosition(target: markerPosition, zoom: 10);
+    markerPosition = const LatLng(34.045253, 71.593056); // Peshawar pin
+    initialCameraPosition = CameraPosition(target: markerPosition, zoom: 10);
     _setupCustomMarkers();
     setState(ViewState.idle);
   }
 
   _setupCustomMarkers() async {
     currentLocationIcon = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(), 'assets/static_images/current-location.png');
+        const ImageConfiguration(),
+        'assets/static_images/current-location.png');
   }
 
   addMarker(LatLng markerLocation) {
@@ -38,8 +38,8 @@ class PinLocationViewModel extends BaseViewModel {
     markers.add(
       Marker(
         position: markerLocation,
-        markerId: MarkerId('pin_location'),
-        infoWindow: InfoWindow(title: 'Your selected location'),
+        markerId: const MarkerId('pin_location'),
+        infoWindow: const InfoWindow(title: 'Your selected location'),
       ),
     );
     notifyListeners();
@@ -50,9 +50,9 @@ class PinLocationViewModel extends BaseViewModel {
     if (loc != null) {
       currentLoc = LatLng(loc.latitude, loc.longitude);
       markers.add(Marker(
-        markerId: MarkerId('current_location'),
+        markerId: const MarkerId('current_location'),
         position: currentLoc!,
-        infoWindow: InfoWindow(title: 'Current Location'),
+        infoWindow: const InfoWindow(title: 'Current Location'),
         icon: currentLocationIcon,
       ));
       notifyListeners();
@@ -66,7 +66,7 @@ class PinLocationViewModel extends BaseViewModel {
   //     debugPrint('$_googleMapsUrl');
   //     await launch(_googleMapsUrl);
   //   } else {
-  //     print('Exception @launchUrl: Can\'t luanch $_googleMapsUrl');
+  //     print('Exception @launchUrl: Can\'t launch $_googleMapsUrl');
   //   }
   // }
 }

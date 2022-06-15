@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 import 'forget_password_view_model.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {
-  //Todo: Do localization here.
-  final _formKey = GlobalKey<FormState>();
+  const ForgetPasswordScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -15,7 +15,7 @@ class ForgetPasswordScreen extends StatelessWidget {
       child: Consumer<ForgetPasswordScreenViewModel>(
         builder: (context, model, child) => ModalProgressHUD(
           inAsyncCall: model.state == ViewState.busy,
-          child: SafeArea(
+          child: const SafeArea(
             child: Scaffold(
               backgroundColor: scaffoldBackgroundColor,
 //               body: Stack(

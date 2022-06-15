@@ -12,11 +12,12 @@ class OnboardingScreen extends StatefulWidget {
   final int currentIndex;
   final List<Onboarding> onboardingList;
   final List<Image> preCachedImages;
-  OnboardingScreen({
+  const OnboardingScreen({
+    Key? key,
     this.currentIndex = 0,
     required this.onboardingList,
     required this.preCachedImages,
-  });
+  }) : super(key: key);
 
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
@@ -33,9 +34,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     debugPrint('@onboardingScreen');
     return ChangeNotifierProvider(
       create: (context) =>
+          // ignore: unnecessary_this
           OnboardingViewModel(widget.currentIndex, this.widget.onboardingList),
       child: Consumer<OnboardingViewModel>(
-        builder: (context, model, child) => SafeArea(
+        builder: (context, model, child) => const SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
             body: Center(

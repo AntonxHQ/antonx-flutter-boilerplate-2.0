@@ -9,6 +9,6 @@ class AuthResponse extends BaseResponse {
 
   /// Named Constructor
   AuthResponse.fromJson(json) : super.fromJson(json) {
-    if (json['body'] != null) this.accessToken = json['body']['token'];
+    if (json['body'] != null) accessToken = json['body']['token'];
   }
 }

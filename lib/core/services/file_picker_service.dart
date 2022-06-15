@@ -40,12 +40,11 @@ class FilePickerService {
     if (result != null) {
       selectedImage = File(result.paths.first!);
       final extension = p.extension(selectedImage.path);
-      debugPrint('@FilePcikerService.pickImage ==> Extension: $extension');
+      debugPrint('@FilePickerService.pickImage ==> Extension: $extension');
       if (extension == '.heic') {
         String? jpegPath = await HeicToJpg.convert(selectedImage.path);
         if (jpegPath != null) selectedImage = File(jpegPath);
       }
-      // final dir = path_prvoider.getTemporaryDirectory();
       // final newPath = '$dir/test.jpg';
       // final compressedImage = await _compressImageFile(selectedImage, newPath);
       // if (compressedImage != null) {

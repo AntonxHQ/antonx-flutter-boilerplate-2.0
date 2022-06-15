@@ -1,6 +1,8 @@
+import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageService {
+  final log = Logger();
   static SharedPreferences? _preferences;
 
   ///
@@ -21,12 +23,12 @@ class LocalStorageService {
   set setNotificationsCount(int count) =>
       _saveToDisk(notificationsCountKey, count);
 
-  dynamic get accessToken => _getFromDisk(accessTokenKey) ?? null;
+  dynamic get accessToken => _getFromDisk(accessTokenKey);
   set accessToken(token) => _saveToDisk(accessTokenKey, token);
 
-  dynamic get refreshToken => _getFromDisk(refreshTokenKey) ?? null;
+  dynamic get refreshToken => _getFromDisk(refreshTokenKey);
 
-////
+  ///
   ///initializing instance
   ///
   init() async {
@@ -35,27 +37,27 @@ class LocalStorageService {
 
   dynamic _getFromDisk(String key) {
     var value = _preferences!.get(key);
-    print('(TRACE) LocalStorageService:_getFromDisk. key: $key value: $value');
+    log.d('(TRACE) LocalStorageService:_getFromDisk. key: $key value: $value');
     return value;
   }
 
   void _saveToDisk<T>(String key, T? content) {
-    print('(TRACE) LocalStorageService:_saveToDisk. key: $key value: $content');
+    log.d('(TRACE) LocalStorageService:_saveToDisk. key: $key value: $content');
 
     if (content is String) {
-      _preferences!.setString(key, content!);
+      _preferences!.setString(key, content);
     }
     if (content is bool) {
-      _preferences!.setBool(key, content!);
+      _preferences!.setBool(key, content);
     }
     if (content is int) {
-      _preferences!.setInt(key, content!);
+      _preferences!.setInt(key, content);
     }
     if (content is double) {
-      _preferences!.setDouble(key, content!);
+      _preferences!.setDouble(key, content);
     }
     if (content is List<String>) {
-      _preferences!.setStringList(key, content!);
+      _preferences!.setStringList(key, content);
     }
 
     if (content == null) {

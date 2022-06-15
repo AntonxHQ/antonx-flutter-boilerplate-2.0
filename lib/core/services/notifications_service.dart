@@ -1,26 +1,28 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:logger/logger.dart';
 
 class NotificationsService {
+  final log = Logger();
   final _fcm = FirebaseMessaging.instance;
   String? fcmToken;
 
   ///
-  ///Initializing Notifiication services that includes FLN, ANDROID NOTIFICATION CHANNEL setting
+  ///Initializing Notification services that includes FLN, ANDROID NOTIFICATION CHANNEL setting
   ///FCM NOTIFICATION SETTINGS, and also listeners for OnMessage and for onMessageOpenedApp
   ///
   initConfigure() async {
-    print("@initFCMConfigure/started");
+    log.d("@initFCMConfigure/started");
 
 //now finally get the token from
     await _fcm.getToken().then((token) {
-      print("FCM TOKEN IS =======-======>$token");
-      this.fcmToken = token;
+      log.d("FCM TOKEN IS =======-======>$token");
+      fcmToken = token;
     });
 
     fcmToken = await getFcmToken();
 
     ///
-    ///now initialuzing the listenes
+    ///now initializing the listeners
     ///
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification notification = message.notification!;
@@ -31,11 +33,7 @@ class NotificationsService {
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       RemoteNotification notification = message.notification!;
       AndroidNotification android = message.notification!.android!;
-      print('A new onMessageOpenedApp event was published!');
-      if (notification != null && android != null) {}
     });
-
-    print("@initConfigure/ENDED");
 
     NotificationSettings settings = await _fcm.requestPermission(
       alert: true,
@@ -51,7 +49,7 @@ class NotificationsService {
   // print('User granted permission: ${settings.authorizationStatus}');
 
   onNotificationClick(String payload) {
-    print('Payload / notification data message is ====>  $payload');
+    log.d('Payload / notification data message is ====>  $payload');
     // Get.to(() => NotificationScreen2(hostUserId));
   }
 
@@ -61,7 +59,7 @@ class NotificationsService {
 }
 
 ///
-///recived notification model class for ios didNotificationRecieved callback
+///received notification model class for ios didNotificationReceived callback
 ///
 class ReceivedNotification {
   final int? id;

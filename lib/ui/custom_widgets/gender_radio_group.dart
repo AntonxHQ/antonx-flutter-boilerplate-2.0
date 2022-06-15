@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class GenderRadioGroup extends StatelessWidget {
   final model;
 
-  GenderRadioGroup(this.model);
+  const GenderRadioGroup(this.model, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,9 +15,7 @@ class GenderRadioGroup extends StatelessWidget {
           // style: textStyleWithHacenFont.copyWith(
           //     fontSize: ScreenUtil().setSp(12), color: Colors.white),
         ),
-        SizedBox(
-          width: 40,
-        ),
+        const SizedBox(width: 40),
         // Radio(
         //   value: 0,
         //   activeColor: primaryColor,
@@ -30,7 +28,6 @@ class GenderRadioGroup extends StatelessWidget {
         CustomSingleRadioButton(
           isSelected: model.selectedGenderIndex == 0,
           onPressed: () {
-            print('Update Gender Index to 0');
             model.updateIndex(0);
           },
         ),
@@ -39,9 +36,7 @@ class GenderRadioGroup extends StatelessWidget {
           // style: textStyleWithHacenFont.copyWith(
           //     fontSize: ScreenUtil().setSp(12), color: Colors.white),
         ),
-        SizedBox(
-          width: 10,
-        ),
+        const SizedBox(width: 10),
         // Radio(
         //   value: 1,
         //   activeColor: primaryColor,

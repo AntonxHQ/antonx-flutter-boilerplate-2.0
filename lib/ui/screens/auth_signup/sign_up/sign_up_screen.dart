@@ -11,8 +11,9 @@ import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 
 class SignUpScreen extends StatelessWidget {
-  //Todo: Do localization here.
   final _formKey = GlobalKey<FormState>();
+
+  SignUpScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -46,9 +47,7 @@ class SignUpScreen extends StatelessWidget {
                                   color: Colors.transparent, width: 0.0)),
                           child: Column(
                             children: [
-                              SizedBox(
-                                height: 60,
-                              ),
+                              const SizedBox(height: 60),
 
                               ///
                               /// custom app bar
@@ -61,7 +60,8 @@ class SignUpScreen extends StatelessWidget {
                               /// UserIcon
                               ///
                               Padding(
-                                padding: EdgeInsets.only(top: 60, bottom: 24),
+                                padding:
+                                    const EdgeInsets.only(top: 60, bottom: 24),
                                 child: Center(
                                   child: Stack(
                                     children: [
@@ -100,11 +100,11 @@ class SignUpScreen extends StatelessWidget {
                                             height: 30.h,
                                             width: 30.h,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFFF2E0A9),
+                                              color: const Color(0xFFF2E0A9),
                                               borderRadius:
                                                   BorderRadius.circular(50),
                                             ),
-                                            child: Icon(
+                                            child: const Icon(
                                               Icons.add,
                                               size: 20,
                                               color: Colors.white,
@@ -134,9 +134,9 @@ class SignUpScreen extends StatelessWidget {
                                       color: Colors.transparent, width: 0.0)),
                             ),
                             Container(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   vertical: 35, horizontal: 31),
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   // color: greyColor,
                                   borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(24),
@@ -152,14 +152,12 @@ class SignUpScreen extends StatelessWidget {
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
-                                      children: [
+                                      children: const [
                                         // SocialAuthButtons(),
                                       ],
                                     ),
 
-                                    SizedBox(
-                                      height: 23,
-                                    ),
+                                    const SizedBox(height: 23),
 
                                     /// user name field
                                     CustomTextField(
@@ -185,9 +183,7 @@ class SignUpScreen extends StatelessWidget {
                                       ),
                                     ),
 
-                                    SizedBox(
-                                      height: 24,
-                                    ),
+                                    const SizedBox(height: 24),
 
                                     /// Password field
                                     CustomTextField(
@@ -213,7 +209,7 @@ class SignUpScreen extends StatelessWidget {
                                               ? Icons.visibility_off
                                               : Icons.visibility,
                                           size: 18.h,
-                                          color: Color(0xFFB1B1B1),
+                                          color: const Color(0xFFB1B1B1),
                                         ),
                                         onPressed: () {
                                           model.togglePasswordVisibility();
@@ -228,9 +224,7 @@ class SignUpScreen extends StatelessWidget {
                                       ),
                                     ),
 
-                                    SizedBox(
-                                      height: 24,
-                                    ),
+                                    const SizedBox(height: 24),
 
                                     /// Email field
                                     CustomTextField(
@@ -256,9 +250,7 @@ class SignUpScreen extends StatelessWidget {
                                       ),
                                     ),
 
-                                    SizedBox(
-                                      height: 24,
-                                    ),
+                                    const SizedBox(height: 24),
 
                                     /// location field
                                     CustomTextField(
@@ -284,9 +276,7 @@ class SignUpScreen extends StatelessWidget {
                                       ),
                                     ),
 
-                                    SizedBox(
-                                      height: 16,
-                                    ),
+                                    const SizedBox(height: 16),
 
                                     /// Row Contain Is Remind radio button
                                     Padding(

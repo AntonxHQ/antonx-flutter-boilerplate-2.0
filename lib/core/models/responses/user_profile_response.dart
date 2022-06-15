@@ -7,7 +7,8 @@ class UserProfileResponse extends BaseResponse {
   UserProfileResponse(success, {error}) : super(success, error: error);
 
   UserProfileResponse.fromJson(json) : super.fromJson(json) {
-    if (json['body'] != null)
-      this.profile = UserProfile.fromJson(json['body']['user']);
+    if (json['body'] != null) {
+      profile = UserProfile.fromJson(json['body']['user']);
+    }
   }
 }

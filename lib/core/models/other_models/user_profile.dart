@@ -38,27 +38,26 @@ class UserProfile {
   }
 
   Future<Map<String, dynamic>> toJson() async {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['email'] = this.email;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['email'] = email;
     // data['fcmToken'] = this.fcmToken;
-    data['phone'] = this.phone;
-    data['image'] = this.imageUrl != null
-        ? await dio.MultipartFile.fromFile(this.imageUrl!)
-        : null;
-    data['gender'] = this.gender;
-    data['location'] = this.location;
+    data['phone'] = phone;
+    data['image'] =
+        imageUrl != null ? await dio.MultipartFile.fromFile(imageUrl!) : null;
+    data['gender'] = gender;
+    data['location'] = location;
     return data;
   }
 
   deepCopy() {
     return UserProfile(
-        name: this.name,
-        email: this.email,
-        fcmToken: this.fcmToken,
-        phone: this.phone,
-        imageUrl: this.imageUrl,
-        gender: this.gender,
-        location: this.location);
+        name: name,
+        email: email,
+        fcmToken: fcmToken,
+        phone: phone,
+        imageUrl: imageUrl,
+        gender: gender,
+        location: location);
   }
 }

@@ -5,7 +5,5 @@ class ResetPasswordBody {
     this.email,
   });
 
-  toJson() => {
-        'email': this.email,
-      };
+  toJson() => {'email': email};
 }

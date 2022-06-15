@@ -9,34 +9,35 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class RootScreen extends StatelessWidget {
-  //Todo: Do localizaiton here.
+  const RootScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Consumer<RootScreenViewModel>(
       builder: (context, model, child) => WillPopScope(
         onWillPop: () async {
           final status = await Get.dialog(AlertDialog(
-            title: Text('Caution!'),
-            content: Text('Do you really want to close the application?'),
+            title: const Text('Caution!'),
+            content: const Text('Do you really want to close the application?'),
             actions: [
               ElevatedButton(
                 onPressed: () {
                   Get.back(result: true);
                 },
-                child: Text('Yes'),
+                child: const Text('Yes'),
               ),
               ElevatedButton(
                 onPressed: () {
                   Get.back(result: false);
                 },
-                child: Text('No'),
+                child: const Text('No'),
               ),
             ],
           ));
 
-          /// In case user has choosen not to be kept logged in,
+          /// In case user has chosen not to be kept logged in,
           /// he will get logged out of the app on exit.
-          // if (status && !locator<AuthService>().isRemeberMe) {
+          // if (status && !locator<AuthService>().isRememberMe) {
           //   await locator<AuthService>().logout();
           // }
           return status;
@@ -50,7 +51,7 @@ class RootScreen extends StatelessWidget {
                   color: Colors.grey,
                   backgroundColor: Colors.grey,
                   selectedColor: primaryColor,
-                  notchedShape: CircularNotchedRectangle(),
+                  notchedShape: const CircularNotchedRectangle(),
                   onTabSelected: model.updatedScreenIndex,
                   items: [
                     FABBottomAppBarItem(
@@ -95,7 +96,7 @@ class RootScreen extends StatelessWidget {
               ? FloatingActionButton(
                   backgroundColor: otherColor,
                   onPressed: () {},
-                  child: Icon(Icons.add),
+                  child: const Icon(Icons.add),
                   elevation: 2.0,
                 )
               : Container(),

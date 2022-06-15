@@ -5,14 +5,14 @@ class BaseResponse {
   BaseResponse(this.success, {this.error});
 
   BaseResponse.fromJson(json) {
-    this.success = json['success'];
-    this.error = json['error'];
+    success = json['success'];
+    error = json['error'];
   }
 
   toJson() {
     return {
-      'success': this.success,
-      'error': this.error,
+      'success': success,
+      'error': error,
     };
   }
 }

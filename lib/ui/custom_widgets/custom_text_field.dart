@@ -40,12 +40,12 @@ class CustomTextField extends StatelessWidget {
       // style: textStyleWithHacenFont.copyWith(
       // fontSize: this.fontSize, color: greyColor),
       // cursorColor: primaryColor,
-      controller: this.controller,
-      obscureText: this.obscure!,
+      controller: controller,
+      obscureText: obscure!,
       validator: validator ??
           (value) {
             if (value != null) {
-              return this.errorText;
+              return errorText;
             } else {
               return null;
             }
@@ -54,7 +54,7 @@ class CustomTextField extends StatelessWidget {
         fillColor: Colors.white,
         filled: true,
         // alignLabelWithHint: true,
-        prefixIconConstraints: BoxConstraints(
+        prefixIconConstraints: const BoxConstraints(
 //            maxHeight: 25.h,
 //            maxWidth: 25.w,
             ),
@@ -63,45 +63,36 @@ class CustomTextField extends StatelessWidget {
           child: prefixIcon!,
         ),
         suffixIcon: Padding(
-            padding: const EdgeInsets.only(),
-            child: suffixIcon != null ? suffixIcon : Container()),
-        suffixIconConstraints: BoxConstraints(maxHeight: 40, maxWidth: 50),
+            padding: const EdgeInsets.only(), child: suffixIcon ?? Container()),
+        suffixIconConstraints:
+            const BoxConstraints(maxHeight: 40, maxWidth: 50),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14.0),
-          borderSide: BorderSide(
-              // color: disableBorder ? Colors.transparent : primaryColor,
-              width: 1.0),
+          borderSide: const BorderSide(width: 1.0),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
               color: disableBorder
                   ? Colors.transparent
-                  : Color(0XFF686868).withOpacity(0.4)),
+                  : const Color(0xFF686868).withOpacity(0.4)),
           borderRadius: BorderRadius.circular(14.0),
         ),
         disabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
               color: disableBorder
                   ? Colors.transparent
-                  : Color(0XFF686868).withOpacity(0.4)),
+                  : const Color(0xFF686868).withOpacity(0.4)),
           borderRadius: BorderRadius.circular(14.0),
         ),
         border: OutlineInputBorder(
           borderSide: BorderSide(
               color: disableBorder
                   ? Colors.transparent
-                  : Color(0XFF686868).withOpacity(0.4)),
+                  : const Color(0xFF686868).withOpacity(0.4)),
           borderRadius: BorderRadius.circular(14.0),
         ),
-        contentPadding: EdgeInsets.only(
-          left: 21.0,
-        ),
-        hintText: this.hintText,
-//         hintStyle: textStyleWithHacenFont.copyWith(
-// //              color: Color(0XFF686868),
-//             color: Color(0XFFE4E4E4),
-//             fontSize: fontSize),
-//       ),
+        contentPadding: const EdgeInsets.only(left: 21.0),
+        hintText: hintText,
       ),
     );
   }

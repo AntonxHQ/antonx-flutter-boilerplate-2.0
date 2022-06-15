@@ -9,7 +9,7 @@ import 'package:flutter_antonx_boilerplate/core/services/device_info_service.dar
 import 'package:flutter_antonx_boilerplate/core/services/local_storage_service.dart';
 import 'package:flutter_antonx_boilerplate/core/services/notifications_service.dart';
 import 'package:flutter_antonx_boilerplate/locator.dart';
-import 'package:flutter_antonx_boilerplate/ui/custom_widgets/dailogs/auth_dialog.dart';
+import 'package:flutter_antonx_boilerplate/ui/custom_widgets/dialogs/auth_dialog.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
@@ -83,7 +83,7 @@ class AuthService {
     late AuthResponse response;
     response = await _dbService.createAccount(body);
     if (response.success) {
-      this.userProfile = UserProfile.fromJson(body.toJson());
+      userProfile = UserProfile.fromJson(body.toJson());
       _localStorageService.accessToken = response.accessToken;
       await _updateFcmToken();
     }
