@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -15,8 +17,9 @@ class CustomTextField extends StatelessWidget {
   final onTap;
   final bool disableBorder;
   final onChanged;
-  CustomTextField(
-      {this.controller,
+  const CustomTextField(
+      {Key? key,
+      this.controller,
       this.onTap,
       this.disableBorder = false,
       this.label,
@@ -29,7 +32,8 @@ class CustomTextField extends StatelessWidget {
       this.onSaved,
       this.suffixIcon,
       @required this.prefixIcon,
-      this.onChanged});
+      this.onChanged})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -37,9 +41,6 @@ class CustomTextField extends StatelessWidget {
       onTap: onTap,
       onSaved: onSaved,
       enabled: enabled,
-      // style: textStyleWithHacenFont.copyWith(
-      // fontSize: this.fontSize, color: greyColor),
-      // cursorColor: primaryColor,
       controller: controller,
       obscureText: obscure!,
       validator: validator ??
@@ -53,11 +54,7 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         fillColor: Colors.white,
         filled: true,
-        // alignLabelWithHint: true,
-        prefixIconConstraints: const BoxConstraints(
-//            maxHeight: 25.h,
-//            maxWidth: 25.w,
-            ),
+        prefixIconConstraints: const BoxConstraints(),
         prefixIcon: Padding(
           padding: const EdgeInsets.only(left: 10.0, right: 10.0),
           child: prefixIcon!,

@@ -3,6 +3,7 @@ import 'package:flutter_antonx_boilerplate/ui/custom_widgets/single_radio_button
 import 'package:get/get.dart';
 
 class GenderRadioGroup extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final model;
 
   const GenderRadioGroup(this.model, {Key? key}) : super(key: key);

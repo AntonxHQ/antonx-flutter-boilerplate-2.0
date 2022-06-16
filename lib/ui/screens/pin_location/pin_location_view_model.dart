@@ -7,6 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class PinLocationViewModel extends BaseViewModel {
   late GoogleMapController controller;
   late CameraPosition initialCameraPosition;
+  // ignore: prefer_typing_uninitialized_variables
   var currentLocationIcon;
   Set<Marker> markers = <Marker>{};
   late LatLng markerPosition;

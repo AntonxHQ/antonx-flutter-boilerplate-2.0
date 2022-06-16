@@ -19,6 +19,7 @@ class LocationService {
     }
     log.d(
         'Latitude: ${currentLocation!.latitude}, Longitude: ${currentLocation!.longitude}');
+    return currentLocation;
   }
 
   checkPermissionStatus() async {

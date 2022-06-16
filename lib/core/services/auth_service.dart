@@ -62,7 +62,6 @@ class AuthService {
       userProfile = response.profile;
       log.d('Got User Data: ${userProfile?.toJson()}');
     } else {
-      //TODO: Update the design of success dialogue according to the app design.
       Get.dialog(AuthDialog(title: 'Title', message: response.error!));
     }
   }
@@ -109,17 +108,11 @@ class AuthService {
     return response;
   }
 
-  signupWithApple() {
-    //TODO: Implement this function
-  }
+  signupWithApple() {}
 
-  signupWithGmail() {
-    //TODO: Implement this function
-  }
+  signupWithGmail() {}
 
-  signupWithFacebook() {
-    //TODO: Implement this function
-  }
+  signupWithFacebook() {}
 
   logout() async {
     isLogin = false;

@@ -83,13 +83,12 @@ class _SplashScreenState extends State<SplashScreen> {
     List<Image> preCachedImages =
         onboardingList.map((e) => Image.network(e.imgUrl!)).toList();
     for (Image preCacheImg in preCachedImages) {
-      // await precacheImage(preCacheImg.image, context);
+      await precacheImage(preCacheImg.image, context);
     }
     return preCachedImages;
   }
 
   _getOnboardingData() async {
-    ///TODO:
     ///uncomment below code
 
     // final response = await _dbService.getOnboardingData();

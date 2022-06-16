@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LanguageChangeAlertDialog extends StatelessWidget {
-  final message;
+  final String message;
 
   const LanguageChangeAlertDialog({Key? key, required this.message})
       : super(key: key);
@@ -11,7 +11,7 @@ class LanguageChangeAlertDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text('chage_lang'.tr),
-      content: Text("$message"),
+      content: Text(message),
       actions: [
         ElevatedButton(
           onPressed: () {
