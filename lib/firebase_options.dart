@@ -70,7 +70,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '816831984722',
     projectId: 'antonx-flutter-template',
     storageBucket: 'antonx-flutter-template.appspot.com',
-    iosClientId: '816831984722-rnmhv8pt2rrq4b3tpi1i6o72rddqo074.apps.googleusercontent.com',
+    iosClientId:
+        '816831984722-rnmhv8pt2rrq4b3tpi1i6o72rddqo074.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterAntonxBoilerplate',
   );
 }
