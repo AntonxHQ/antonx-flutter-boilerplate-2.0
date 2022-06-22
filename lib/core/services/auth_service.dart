@@ -7,7 +7,6 @@ import 'package:flutter_antonx_boilerplate/core/models/responses/user_profile_re
 import 'package:flutter_antonx_boilerplate/core/services/database_service.dart';
 import 'package:flutter_antonx_boilerplate/core/services/device_info_service.dart';
 import 'package:flutter_antonx_boilerplate/core/services/local_storage_service.dart';
-import 'package:flutter_antonx_boilerplate/core/services/notifications_service.dart';
 import 'package:flutter_antonx_boilerplate/locator.dart';
 import 'package:flutter_antonx_boilerplate/ui/custom_widgets/dialogs/auth_dialog.dart';
 import 'package:get/get.dart';
@@ -70,7 +69,7 @@ class AuthService {
   /// Updating FCM Token here...
   ///
   _updateFcmToken() async {
-    final fcmToken = await locator<NotificationsService>().getFcmToken();
+    // final fcmToken = await locator<NotificationsService>().getFcmToken();
     final deviceId = await DeviceInfoService().getDeviceId();
     final response = await _dbService.updateFcmToken(deviceId, fcmToken!);
     if (response.success) {
