@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_antonx_boilerplate/core/models/other_models/onboarding.dart';
 import 'package:flutter_antonx_boilerplate/core/services/auth_service.dart';
 import 'package:flutter_antonx_boilerplate/core/services/local_storage_service.dart';
-import 'package:flutter_antonx_boilerplate/core/services/notifications_service.dart';
 import 'package:flutter_antonx_boilerplate/ui/custom_widgets/dialogs/network_error_dialog.dart';
 import 'package:flutter_antonx_boilerplate/ui/screens/root/root_screen.dart';
 import 'package:get/get.dart';
@@ -23,7 +22,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   final _authService = locator<AuthService>();
   final _localStorageService = locator<LocalStorageService>();
-  final _notificationService = locator<NotificationsService>();
+  // final _notificationService = locator<NotificationsService>();
   List<Onboarding> onboardingList = [];
   final Logger log = Logger();
 
@@ -46,17 +45,17 @@ class _SplashScreenState extends State<SplashScreen> {
       return;
     }
 
-    ////
+    ///
     ///initializing notification services
     ///
     // await NotificationsService().initConfigure();
     // var fcm = await NotificationsService().getFcmToken();
     // print("FCM TOKEN is =====> $fcm");
-    await _notificationService.initConfigure();
+    // await _notificationService.initConfigure();
 
     ///getting onboarding data for pre loading purpose
-    onboardingList = await _getOnboardingData();
-//routing to the last onboarding screen user seen
+    // onboardingList = await _getOnboardingData();
+    /// routing to the last onboarding screen user seen
     if (_localStorageService.onBoardingPageCount + 1 < onboardingList.length) {
       final List<Image> preCachedImages =
           await _preCacheOnboardingImages(onboardingList);
@@ -67,7 +66,8 @@ class _SplashScreenState extends State<SplashScreen> {
       return;
     }
     await _authService.doSetup();
-    ////
+
+    ///
     ///checking if the user is login or not
     ///
     log.d('Login State: ${_authService.isLogin}');
@@ -88,6 +88,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return preCachedImages;
   }
 
+  // ignore: unused_element
   _getOnboardingData() async {
     ///uncomment below code
 

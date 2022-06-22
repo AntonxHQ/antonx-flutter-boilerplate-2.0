@@ -15,8 +15,8 @@ setupLocator(Env env) async {
   locator.registerSingleton(Config(env));
   locator.registerSingleton(LocalStorageService());
   locator.registerSingleton(NotificationsService());
+  locator.registerSingleton<ApiServices>(ApiServices());
   locator.registerLazySingleton<DatabaseService>(() => DatabaseService());
   locator.registerSingleton<AuthService>(AuthService());
-  locator.registerSingleton<ApiServices>(ApiServices());
   locator.registerLazySingleton(() => FilePickerService());
 }
