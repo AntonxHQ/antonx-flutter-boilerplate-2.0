@@ -12,10 +12,11 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, widget) => GetMaterialApp(
-          translations: LocalizationService(),
-          locale: const Locale("en"),
-          title: title,
-          home: const SplashScreen()),
+        translations: LocalizationService(),
+        locale: const Locale("en"),
+        title: title,
+        home: const SplashScreen(),
+      ),
     );
   }
 }
