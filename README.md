@@ -13,12 +13,13 @@ For logging make sure the following steps:
 - Never use print statement directly for logs
 - For logging use `CustomLogger` and here is an example as well:
 
-`final log = CustomLogger(className: 'main');
+```dart
+final log = CustomLogger(className: 'main');
 log.i('Testing info logs'); // Use it to log information
 log.d('Testing debug logs'); // Use it to log debug messages
 log.e('Testing error logs'); // Use it to log error messages
 log.wtf('Testing WTF logs'); // Use it to log critical error messages
-`
+```
 
 ## API responses
 
