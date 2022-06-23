@@ -3,11 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_antonx_boilerplate/app.dart';
 import 'package:flutter_antonx_boilerplate/core/enums/env.dart';
-import 'package:flutter_antonx_boilerplate/core/others/logger_customizations/custom_log_output.dart';
-import 'package:flutter_antonx_boilerplate/core/others/logger_customizations/custom_log_printer.dart';
+
 import 'package:flutter_antonx_boilerplate/core/others/logger_customizations/custom_logger.dart';
 import 'package:flutter_antonx_boilerplate/firebase_options.dart';
-import 'package:logger/logger.dart';
 import 'locator.dart';
 
 Future<void> main() async {
