@@ -1,12 +1,32 @@
-# AtnonX Flutter Template
+# AntonX Flutter Template
 
-## How to use:
-To be done...
+## Initial check points
 
+Few things to make sure before using this template:
 
-## Features List:
+- Update your version to Flutter V3.0.0
+
+## Logging
+
+For logging make sure the following steps:
+
+- Never use print statement directly for logs
+- For logging use `CustomLogger` and here is an example as well:
+
+`final log = CustomLogger(className: 'main');
+log.i('Testing info logs'); // Use it to log information
+log.d('Testing debug logs'); // Use it to log debug messages
+log.e('Testing error logs'); // Use it to log error messages
+log.wtf('Testing WTF logs'); // Use it to log critical error messages
+`
+
+## API responses
+
+## Features List
+
 AntonX starter app to speedup our development process by adding a list of most commonly used features directly here.
 The features already added include:
+
 - Optimized Project Structure
 - App initial flow settings
 - Local Storage (SharedPrefs) complete settings
