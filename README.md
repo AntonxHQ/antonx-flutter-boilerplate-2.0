@@ -11,14 +11,21 @@ Few things to make sure before using this template:
 For logging make sure the following steps:
 
 - Never use print statement directly for logs
-- For logging use `CustomLogger` and here is an example as well:
+- For logging use `CustomLogger`.
+- In `CustomLogger` the className is the name of the class from where we are generating the logs. It helps us identity the location from where the logs are being generated.
+Here is an example as well:
 
 ```dart
-final log = CustomLogger(className: 'main');
-log.i('Testing info logs'); // Use it to log information
-log.d('Testing debug logs'); // Use it to log debug messages
-log.e('Testing error logs'); // Use it to log error messages
-log.wtf('Testing WTF logs'); // Use it to log critical error messages
+class TestClass{
+final log = CustomLogger(className: 'TestClass');
+
+doSomeWork(){
+log.i('@doSomeWork: Testing info logs'); // Use it to log information
+log.d('@doSomeWork: Testing debug logs'); // Use it to log debug messages
+log.e('@doSomeWork: Testing error logs'); // Use it to log error messages
+log.wtf('@doSomeWork: Testing WTF logs'); // Use it to log critical error messages
+}
+}
 ```
 
 ## API responses
