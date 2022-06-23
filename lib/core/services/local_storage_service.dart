@@ -1,8 +1,8 @@
-import 'package:logger/logger.dart';
+import 'package:flutter_antonx_boilerplate/core/others/logger_customizations/custom_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageService {
-  final log = Logger();
+  final log = CustomLogger(className: 'Local Storage Service');
   static SharedPreferences? _preferences;
 
   ///
@@ -37,12 +37,12 @@ class LocalStorageService {
 
   dynamic _getFromDisk(String key) {
     var value = _preferences!.get(key);
-    log.d('(TRACE) LocalStorageService:_getFromDisk. key: $key value: $value');
+    log.d('@_getFromDisk. key: $key value: $value');
     return value;
   }
 
   void _saveToDisk<T>(String key, T? content) {
-    log.d('(TRACE) LocalStorageService:_saveToDisk. key: $key value: $content');
+    log.d('@_saveToDisk. key: $key value: $content');
 
     if (content is String) {
       _preferences!.setString(key, content);

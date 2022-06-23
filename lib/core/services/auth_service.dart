@@ -4,6 +4,7 @@ import 'package:flutter_antonx_boilerplate/core/models/body/signup_body.dart';
 import 'package:flutter_antonx_boilerplate/core/models/other_models/user_profile.dart';
 import 'package:flutter_antonx_boilerplate/core/models/responses/auth_response.dart';
 import 'package:flutter_antonx_boilerplate/core/models/responses/user_profile_response.dart';
+import 'package:flutter_antonx_boilerplate/core/others/logger_customizations/custom_logger.dart';
 import 'package:flutter_antonx_boilerplate/core/services/database_service.dart';
 import 'package:flutter_antonx_boilerplate/core/services/device_info_service.dart';
 import 'package:flutter_antonx_boilerplate/core/services/local_storage_service.dart';
@@ -36,7 +37,7 @@ class AuthService {
   final _dbService = locator<DatabaseService>();
   UserProfile? userProfile;
   String? fcmToken;
-  static final Logger log = Logger();
+  static final Logger log = CustomLogger(className: 'AuthService');
 
   ///
   /// [doSetup] Function does the following things:
@@ -51,7 +52,7 @@ class AuthService {
       await _getUserProfile();
       await _updateFcmToken();
     } else {
-      log.d('User is not logged-in');
+      log.d('@doSetup: User is not logged-in');
     }
   }
 
