@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_antonx_boilerplate/core/models/other_models/onboarding.dart';
+import 'package:flutter_antonx_boilerplate/core/others/logger_customizations/custom_logger.dart';
 import 'package:flutter_antonx_boilerplate/core/services/auth_service.dart';
 import 'package:flutter_antonx_boilerplate/core/services/local_storage_service.dart';
 import 'package:flutter_antonx_boilerplate/ui/custom_widgets/dialogs/network_error_dialog.dart';
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   final _localStorageService = locator<LocalStorageService>();
   // final _notificationService = locator<NotificationsService>();
   List<Onboarding> onboardingList = [];
-  final Logger log = Logger();
+  final Logger log = CustomLogger(className: 'Splash Screen');
 
   @override
   void didChangeDependencies() {
@@ -70,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen> {
     ///
     ///checking if the user is login or not
     ///
-    log.d('Login State: ${_authService.isLogin}');
+    log.d('@_initialSetup. Login State: ${_authService.isLogin}');
     if (_authService.isLogin) {
       Get.off(() => const RootScreen());
     } else {
