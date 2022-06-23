@@ -58,7 +58,8 @@ The features already added include:
 - Localization services
 - Custom logger for better debugging
 
-Future planned features: 
+Future planned features:
+
 - Build flavours
 - CI/CD
 - ...
