@@ -20,11 +20,11 @@ class TestClass{
 final log = CustomLogger(className: 'TestClass');
 
 doSomeWork(){
-log.i('@doSomeWork: Testing info logs'); // Use it to log information
-log.d('@doSomeWork: Testing debug logs'); // Use it to log debug messages
-log.e('@doSomeWork: Testing error logs'); // Use it to log error messages
-log.wtf('@doSomeWork: Testing WTF logs'); // Use it to log critical error messages
-}
+  log.i('@doSomeWork: Testing info logs'); // Use it to log information
+  log.d('@doSomeWork: Testing debug logs'); // Use it to log debug messages
+  log.e('@doSomeWork: Testing error logs'); // Use it to log error messages
+  log.wtf('@doSomeWork: Testing WTF logs'); // Use it to log critical error messages
+  }
 }
 ```
 
