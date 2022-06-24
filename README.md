@@ -6,7 +6,6 @@ Few things to make sure before using this template:
 
 - Update your version to Flutter V3.0.0
 
-
 ## Initial App Flow settings
 
 All initial app settings are done in `_initialSetup();` function on Splash Screen with the following flow:
@@ -20,9 +19,6 @@ All initial app settings are done in `_initialSetup();` function on Splash Scree
   - Check if user is logged in by checking the access_token
   - If logged in then get user data and also update users FCM token
 - Check if user is logged-in, move to root screen (home) otherwise move to login screen.
-
-
-
 
 ## Logging
 
@@ -84,7 +80,7 @@ The features already added include:
 
 - Optimized Project Structure
 - App initial flow settings
-- Local Storage (SharedPrefs) complete settings
+- Local Storage (SharedPreferences) complete settings
 - Screen Utils settings for adoptive design
 - Dependency injection settings with get_it package
 - Firebase Integration settings
