@@ -82,7 +82,9 @@ We have set three environments in the this template:
 We have also added config file to add configurations relevant to the environment the app is running. You can find config file at `lib/core/config` and there you need to set all three BaseUrls for all three envs.
 Then `ApiServices` class will get the relevant base_url according to the environment the app is running in.
 
-## API responses
+## API Requests and it's management
+
+For API requests, `DatabaseServices` class is used which then uses `ApiServices` class for `get`, `post`, `put` and `delete` request. `ApiServices` class manage all error handling workload and will provide a `RequestResponse` object which can be further used for managing rest of the api responses work.
 
 ## Features List
 
