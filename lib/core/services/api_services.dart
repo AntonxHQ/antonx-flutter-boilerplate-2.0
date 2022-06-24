@@ -7,7 +7,7 @@ import 'package:flutter_antonx_boilerplate/core/services/local_storage_service.d
 import '../../locator.dart';
 
 class ApiServices {
-  final config = locator<Config>();
+  final _config = locator<Config>();
   Future<Dio> launchDio() async {
     String? accessToken = locator<LocalStorageService>().accessToken;
     Dio dio = Dio();
@@ -32,7 +32,7 @@ class ApiServices {
   get({required String endPoint, params}) async {
     Dio dio = await launchDio();
     final response = await dio
-        .get('${config.baseUrl}/$endPoint', queryParameters: params)
+        .get('${_config.baseUrl}/$endPoint', queryParameters: params)
         .catchError((e) {
       debugPrint('Unexpected Error');
     });
@@ -48,7 +48,7 @@ class ApiServices {
   post({required String endPoint, data}) async {
     Dio dio = await launchDio();
     final response = await dio
-        .post('${config.baseUrl}/$endPoint', data: data)
+        .post('${_config.baseUrl}/$endPoint', data: data)
         .catchError((e) {
       debugPrint('Unexpected Error');
     });
@@ -64,7 +64,7 @@ class ApiServices {
   put({required String endPoint, data}) async {
     Dio dio = await launchDio();
     final response = await dio
-        .put('${config.baseUrl}/$endPoint', data: data)
+        .put('${_config.baseUrl}/$endPoint', data: data)
         .catchError((e) {
       debugPrint('Unexpected Error');
     });
@@ -80,7 +80,7 @@ class ApiServices {
   delete({required String endPoint, params}) async {
     Dio dio = await launchDio();
     final response = await dio
-        .delete('${config.baseUrl}/$endPoint', queryParameters: params)
+        .delete('${_config.baseUrl}/$endPoint', queryParameters: params)
         .catchError((e) {
       debugPrint('Unexpected Error');
     });

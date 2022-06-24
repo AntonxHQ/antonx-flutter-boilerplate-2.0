@@ -71,6 +71,17 @@ if (_localStorageService.onBoardingPageCount + 1 < onboardingList.length) {
     }
 ```
 
+## Environments and config file
+
+We have set three environments in the this template:
+
+- Dev
+- Test
+- Production
+
+We have also added config file to add configurations relevant to the environment the app is running. You can find config file at `lib/core/config` and there you need to set all three BaseUrls for all three envs.
+Then `ApiServices` class will get the relevant base_url according to the environment the app is running in.
+
 ## API responses
 
 ## Features List
