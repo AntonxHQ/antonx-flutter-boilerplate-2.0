@@ -6,4 +6,8 @@ class EndPoints {
   static const login = 'login';
   static const signUp = 'sign_up';
   static const resetPassword = 'reset_password';
+
+  static const loginWithGoogle = '/login/google/callback';
+  static const loginWithFacebook = '/login/facebook/callback';
+  static const loginWithApple = '/login/apple/callback';
 }

@@ -52,6 +52,37 @@ class DatabaseService {
     return AuthResponse.fromJson(response.data);
   }
 
+  ///
+  /// Sign up with google
+  ///
+  Future<AuthResponse> loginWithGoogle(String accessToken) async {
+    final RequestResponse response = await _apiServices.post(
+      endPoint: EndPoints.loginWithGoogle,
+      data: {'accessToken': accessToken},
+    );
+    return AuthResponse.fromJson(response.data);
+  }
+
+  ///
+  /// Sign up with facebook
+  ///
+  Future<AuthResponse> loginWithFacebook(String accessToken) async {
+    final RequestResponse response = await _apiServices.post(
+      endPoint: EndPoints.loginWithFacebook,
+      data: {'accessToken': accessToken},
+    );
+    return AuthResponse.fromJson(response.data);
+  }
+
+  ///
+  /// Sign up with apple
+  ///
+  Future<AuthResponse> loginWithApple(AppleAuthObject authObject) async {
+    final RequestResponse response = await _apiServices.post(
+        endPoint: EndPoints.loginWithGoogle, data: authObject.toJson());
+    return AuthResponse.fromJson(response.data);
+  }
+
   Future<AuthResponse> createAccount(SignUpBody body) async {
     final RequestResponse response = await _apiServices.post(
       endPoint: EndPoints.signUp,
