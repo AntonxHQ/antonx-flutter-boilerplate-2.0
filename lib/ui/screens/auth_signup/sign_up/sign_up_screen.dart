@@ -82,7 +82,7 @@ class SignUpScreen extends StatelessWidget {
                                           height: 141,
                                           width: 141,
                                           assets:
-                                              "assets/static_assets/avatar.png",
+                                              "assets/static_images/User-Avatar-in-Suit-PNG.png",
                                           radius: 0,
                                         ),
 
@@ -178,7 +178,7 @@ class SignUpScreen extends StatelessWidget {
                                         width: 22.w,
                                         height: 22.h,
                                         assets:
-                                            "${staticAssetsPath}user_field_icon.png",
+                                            "assets/icons/username_icon.png",
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -219,7 +219,7 @@ class SignUpScreen extends StatelessWidget {
                                         width: 22.w,
                                         height: 22.h,
                                         assets:
-                                            "${staticAssetsPath}pasword_field_icon.png",
+                                            "assets/icons/password_icon.png",
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -244,8 +244,7 @@ class SignUpScreen extends StatelessWidget {
                                       prefixIcon: ImageContainer(
                                         width: 22.w,
                                         height: 22.h,
-                                        assets:
-                                            "${staticAssetsPath}mail_field_icon.png",
+                                        assets: "assets/icons/mail_icon.png",
                                         fit: BoxFit.contain,
                                       ),
                                     ),
@@ -271,7 +270,7 @@ class SignUpScreen extends StatelessWidget {
                                         width: 22.w,
                                         height: 22.h,
                                         assets:
-                                            "${staticAssetsPath}location_field_icon.png",
+                                            "assets/icons/location_field_icon.png",
                                         fit: BoxFit.contain,
                                       ),
                                     ),
