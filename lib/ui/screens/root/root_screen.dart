@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_antonx_boilerplate/core/constants/colors.dart';
-import 'package:flutter_antonx_boilerplate/core/constants/strings.dart';
 import 'package:flutter_antonx_boilerplate/ui/custom_widgets/bottom_nav_bar/fab_bar.dart';
-import 'package:flutter_antonx_boilerplate/ui/custom_widgets/image_container.dart';
 import 'package:flutter_antonx_boilerplate/ui/screens/root/root_screen_view_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+
+import '../../../core/constants/strings.dart';
+import '../../custom_widgets/image_container.dart';
 
 class RootScreen extends StatelessWidget {
   const RootScreen({Key? key}) : super(key: key);
@@ -58,7 +59,7 @@ class RootScreen extends StatelessWidget {
                       icon: ImageContainer(
                         height: 30.h,
                         width: 30.h,
-                        assets: "${staticAssetsPath}bottom_home_icon.png",
+                        assets: "${staticAssetsPath}icon_demo.jpeg",
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -66,7 +67,7 @@ class RootScreen extends StatelessWidget {
                       icon: ImageContainer(
                         height: 30.h,
                         width: 30.h,
-                        assets: "${staticAssetsPath}bottom_card_icon.png",
+                        assets: "${staticAssetsPath}icon_demo.jpeg",
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -74,7 +75,7 @@ class RootScreen extends StatelessWidget {
                       icon: ImageContainer(
                         height: 30.h,
                         width: 30.h,
-                        assets: "${staticAssetsPath}bottom_category_icon.png",
+                        assets: "${staticAssetsPath}icon_demo.jpeg",
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -82,7 +83,7 @@ class RootScreen extends StatelessWidget {
                       icon: ImageContainer(
                         height: 30.h,
                         width: 30.h,
-                        assets: "${staticAssetsPath}bottom_profile_icon.png",
+                        assets: "${staticAssetsPath}icon_demo.jpeg",
                         fit: BoxFit.contain,
                       ),
                     ),

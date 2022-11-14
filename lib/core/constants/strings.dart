@@ -1,3 +1,3 @@
-const String staticAssetsPath = "assets/static_assets/";
+const String staticAssetsPath = "assets/";
 
 const welcomeMsg = 'Welcome to AntonX';
