@@ -19,9 +19,9 @@ class Config {
   _setupBaseUrl() {
     if (_env == Env.production) {
       _baseUrl = _productionBaseUrl;
-    } else if (_env == Env.production) {
+    } else if (_env == Env.test) {
       _baseUrl = _testBaseUrl;
-    } else if (_env == Env.production) {
+    } else if (_env == Env.dev) {
       _baseUrl = _devBaseUrl;
     }
   }
